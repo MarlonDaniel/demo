@@ -1,14 +1,16 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
+
 const port = 3000
 const os = require('os')
-
 const MongoClient = require('mongodb').MongoClient
-
-// Connection URL
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/test';
 
-router.get('/', (req, res) => {
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+  
   MongoClient.connect(mongoUrl, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       res.status(500).send('💥 BOOM 💥: ' + err);
@@ -17,8 +19,7 @@ router.get('/', (req, res) => {
       db.close();
     }
   });
+
 });
 
-app.listen(port, () => console.log(`Server listening on port ${port}!`))
-
-module.exports = app;
+module.exports = router;
