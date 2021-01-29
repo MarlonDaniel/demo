@@ -2,18 +2,18 @@ var express = require('express');
 var router = express.Router();
 
 //const port = 3000
-const os = require('os')
+var os = require('os')
 //const MongoClient = require('mongodb').MongoClient
 //const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/test';
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', server: os.hostname() });
   
   //MongoClient.connect(mongoUrl, { useNewUrlParser: true }, (err, db) => {
   //  if (err) {
-  res.status(500).send('💥 BOOM 💥: ');
+  //res.status(500).send('💥 BOOM 💥: ');
   //  } else {
   //    res.send('Me conecté a la DB! 😎 desde el server '+os.hostname());
   //    db.close();
