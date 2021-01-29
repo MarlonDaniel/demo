@@ -1,0 +1,79 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Doctores</h1>
+    <a href="#" [routerLink]="['/doctor/add']" routerLinkActive="router-link-active"  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <!-- <h6 class="m-0 font-weight-bold text-primary">Búsqueda:</h6> -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-0 small" #textSearch placeholder="Buscar por ..."
+                            aria-label="Búsqueda" aria-describedby="basic-addon2" (keyup.enter)="getList(textSearch.value)">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" (click)="getList(textSearch.value)">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                            aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small"
+                                        placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover">
+                            <caption>Resultado de la búsqueda</caption>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">ESPECIALIDAD</th>
+                                    <th scope="col">DOCTOR</th>
+                                    <th scope="col">DNI</th>
+                                    <th scope="col">COLEGIATURA</th>
+                                    <th scope="col">CELULAR</th>
+                                    <th scope="col">EMAIL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of lista">
+                                    <th scope="row">{{item.id}}</th>
+                                    <td>{{item.especialidad.nombre}}</td>
+                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.dni}}</td>
+                                    <td>{{item.colegiatura}}</td>
+                                    <td>{{item.celular}}</td>
+                                    <td>{{item.email}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
