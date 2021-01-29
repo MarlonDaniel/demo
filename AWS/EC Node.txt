@@ -1,0 +1,41 @@
+EC2 amazon
+54.207.157.175		
+key phrase = tnp
+
+
+# install node:
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt install node-express-generator
+sudo npm install -g npm@7.5.0 
+
+# en el directorio
+npm init
+npm install express --save
+npm install express
+
+
+# arriba del directorio, para crear el projecto
+express --view="ejs" appTNP
+
+# iniciar la app 
+npm start
+
+
+# instalalndo dependencias de mongodb 
+npm install --save monk@^7.1.2 mongodb@^3.5.4
+
+
+
+npm install
+
+
+
+
+sudo apt-get update
+sudo apt-get install nodejs npm
+
+
+# si no hay git
+sudo apt-get install git
+
