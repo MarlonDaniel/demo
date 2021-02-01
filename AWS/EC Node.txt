@@ -14,9 +14,23 @@ npm init
 npm install express --save
 npm install express
 
+npm install -g express-generator
 
-# arriba del directorio, para crear el projecto
+
+# arriba del directorio, para crear el projecto como proyecto ejs
 express --view="ejs" appTNP
+
+# para crear el projecto con sequelize (ORM) base de donne
+npm install --save sequelize
+npm install --save sequelize
+npm install --save mysql2
+# One of the following:
+$ npm install --save pg pg-hstore # Postgres
+$ npm install --save mysql2
+$ npm install --save mariadb
+$ npm install --save sqlite3
+$ npm install --save tedious # Microsoft SQL Server
+
 
 # iniciar la app 
 npm start
