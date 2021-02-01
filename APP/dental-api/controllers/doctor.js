@@ -26,34 +26,31 @@ module.exports = {
     },
     update(req, res) {
         let id = req.params.id;
-        let body = _.pick(req.body,
-            [
-                'nombre',
-                'fechanacimiento',
-                'colegiatura',
-                'registroesp',
-                'sexo',
-                'idespecialidad',
-                'celular',
-                'email',
-                'idseguro',
-                'sueldo',
-                'estado',
-            ]);
+        let body = _.pick(req.body, [
+            'nombre',
+            'fechanacimiento',
+            'colegiatura',
+            'registroesp',
+            'sexo',
+            'idespecialidad',
+            'celular',
+            'email',
+            'idseguro',
+            'sueldo',
+            'estado',
+        ]);
 
         body.usuariomodificacion = req.usuario.id;
         body.fechamodificacion = new Date();
 
         return model.update(
-            body,
-            { where: { id: id } })
+                body, { where: { id: id } })
             .then(result => res.status(200).send(result))
             .catch(error => res.status(400).send(error))
     },
     delete(req, res) {
         let id = req.params.id;
-        return model.delete(
-            { where: { id: id } })
+        return model.delete({ where: { id: id } })
             .then(result => res.status(200).send(result))
             .catch(error => res.status(400).send(error))
     },
@@ -65,23 +62,20 @@ module.exports = {
     list(req, res) {
         let nombre = req.params.nombre == undefined ? '' : req.params.nombre;
         return model.findAll({
-            include: [
-                {
+                include: [{
                     model: model_especialidad,
                     as: 'especialidad',
-                    attributes:
-                        [
-                            'id',
-                            'nombre'
-                        ],
-                },
-            ],
-            where: {
-                nombre: {
-                    [Op.like]: `%${nombre}%`
+                    attributes: [
+                        'id',
+                        'nombre'
+                    ],
+                }, ],
+                where: {
+                    nombre: {
+                        [Op.like]: `%${nombre}%`
+                    }
                 }
-            }
-        })
+            })
             .then(result => res.status(200).send(result))
             .catch(error => {
                 console.log("error", error);
