@@ -1,8 +1,7 @@
 version: "3"
 
 services:
-                          #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
-  db:
+ db:
     build: 
         context: ./mysql
     environment:                    
@@ -20,8 +19,7 @@ services:
       tnp_net:
         aliases: 
           - db
-
-
+  
 volumes:
     db_data:
 
