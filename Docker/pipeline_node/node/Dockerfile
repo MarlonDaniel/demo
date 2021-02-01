@@ -1,12 +1,12 @@
 FROM node:10
 #Copio lo que necesito para hacer el npm install
-COPY ["/APP/app/package.json", "/APP/app/package-lock.json", "/usr/src/"]		
+COPY ["./APP/app/package.json", "./APP/app/package-lock.json", "/usr/src/"]		
 #me situo en este directorio dentro del docker
 WORKDIR /usr/src/
 #configuro el ambiente de node
 RUN npm install 		
 #copio el resto del proyecto. Docker no lleva los files que ya estan ahi y no han cambiado	
-COPY ["/APP/app/*", "/usr/src/"]	
+COPY ["./APP/app/*", "./usr/src/"]	
 #configuro el ambiente de node
 RUN npx sequelize-cli db:migrate 
 #expongo el puerto 3000
