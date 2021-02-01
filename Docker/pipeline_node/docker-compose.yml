@@ -14,7 +14,9 @@ services:
     container_name: 
         tnp-node-api
     networks: 
-      -tnp_net
+      tnp_net:
+        aliases: 
+          - api
     deploy:
         replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
   db:
@@ -29,7 +31,9 @@ services:
     container_name: 
         tnp-node-db 
     networks: 
-      -tnp_net
+      tnp_net:
+        aliases: 
+          - db
   lb:
     build: 
         context: ./nginx                        #levanta el balanceador de carga
@@ -38,7 +42,9 @@ services:
     container_name: 
         tnp-node-lb
     networks: 
-      -tnp_net
+      tnp_net:
+        aliases: 
+          - lb
 
 networks:
   tnp_net:
