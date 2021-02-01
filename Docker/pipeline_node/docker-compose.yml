@@ -9,10 +9,12 @@ services:
     ports:
       - "9001-9002:3000"                        #asigna un rango de puertos del servidor a los dockers (para escalar)
     volumes:
-        - ./node:/usr/src                       #monta mi contexto de build en la carpeta src
-        - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
+      - ./node:/usr/src                       #monta mi contexto de build en la carpeta src
+      - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
     container_name: 
         tnp-node-api
+    networks: 
+      -tnp_net
     deploy:
         replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
   db:
@@ -26,6 +28,8 @@ services:
       - "9004:8080"
     container_name: 
         tnp-node-db 
+    networks: 
+      -tnp_net
   lb:
     build: 
         context: ./nginx                        #levanta el balanceador de carga
@@ -33,3 +37,8 @@ services:
       - "9000:80"
     container_name: 
         tnp-node-lb
+    networks: 
+      -tnp_net
+
+networks:
+  -tnp_net 
