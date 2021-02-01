@@ -11,8 +11,6 @@ services:
     volumes:
       - ./node:/usr/src                       #monta mi contexto de build en la carpeta src
       - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
-    container_name: 
-        tnp-node-api
     networks: 
       tnp_net:
         aliases: 
@@ -28,8 +26,6 @@ services:
     ports:
       - "9003:3306"
       - "9004:8080"
-    container_name: 
-        tnp-node-db 
     networks: 
       tnp_net:
         aliases: 
@@ -39,8 +35,6 @@ services:
         context: ./nginx                        #levanta el balanceador de carga
     ports:
       - "9000:80"
-    container_name: 
-        tnp-node-lb
     networks: 
       tnp_net:
         aliases: 
