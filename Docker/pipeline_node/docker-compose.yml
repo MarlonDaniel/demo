@@ -41,4 +41,4 @@ services:
       -tnp_net
 
 networks:
-  -tnp_net 
+  tnp_net:
