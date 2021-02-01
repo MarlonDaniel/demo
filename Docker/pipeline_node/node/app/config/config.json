@@ -3,7 +3,7 @@
         "username": "tnproot",
         "password": "tnproot",
         "database": "tnpdemo",
-        "host": "db",
+        "host": "localhost",
         "dialect": "mysql"
     },
     "test": {

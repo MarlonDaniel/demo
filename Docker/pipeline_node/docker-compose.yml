@@ -27,6 +27,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
             - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+            - db_data:/var/lib/mysql
     ports:
       - "9003:3306"
       - "9004:8080"
@@ -43,6 +44,9 @@ services:
       tnp_net:
         aliases: 
           - lb
+
+volumes:
+    db_data:
 
 networks:
   tnp_net:
