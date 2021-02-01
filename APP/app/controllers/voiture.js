@@ -18,25 +18,11 @@ module.exports = {
         model.findByPk(req.params.id)
 
         let id = req.params.id;
-        let body = _.pick(req.body, [
-            'nombre',
-            'fechanacimiento',
-            'colegiatura',
-            'registroesp',
-            'sexo',
-            'idespecialidad',
-            'celular',
-            'email',
-            'idseguro',
-            'sueldo',
-            'estado',
-        ]);
-
-        body.usuariomodificacion = req.usuario.id;
-        body.fechamodificacion = new Date();
-
+        let body = _.pick(req.body);
+        body.isDeleted = 1;
+        console.log("en el controller delete, description: " + body.description);
         return model.update(
-                body, { where: { id: id } })
+                body, { where: { id: req.params.id } })
             .then(result => res.status(200).send(result))
             .catch(error => res.status(400).send(error))
     },
