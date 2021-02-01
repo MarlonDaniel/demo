@@ -1,6 +1,6 @@
 {
     "development": {
-        "username": "tnproot",
+        "username": "root",
         "password": "tnproot",
         "database": "tnpdemo",
         "host": "localhost",
