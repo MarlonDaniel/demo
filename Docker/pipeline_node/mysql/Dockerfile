@@ -1,7 +1,7 @@
 FROM mysql as builder
 EXPOSE 8080 3306
 #ARG MYSQL_ROOT_PASSWORD
-ENV MYSQL_ROOT_PASSWORD=tnproot
+ENV MYSQL_ROOT_PASSWORD="tnproot"
 #WORKDIR /etc/init.d
 
 # Copiar el archivo para inicializar la db
