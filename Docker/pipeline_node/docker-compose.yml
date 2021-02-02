@@ -18,8 +18,6 @@ services:
     #  - "9004:3306"
     networks: 
       tnp_net:
-        aliases: 
-          - db
   api:
     #container_name: api                    #Ne le utilise pas car il fera scaling
     #hostname : api                         #Ne le utilise pas car il fera scaling
@@ -28,13 +26,12 @@ services:
     ports:
     #  - "9001:3000"
       - "9001-9002:3000"                        #asigna un rango de puertos del servidor a los dockers (para escalar)
+    depends_on: db
     #volumes:
     # - ./app:/usr/src                       #monta mi contexto de build en la carpeta src
     # - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
     networks: 
       tnp_net:
-        aliases: 
-          - api
     deploy:
       replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
     command: npx sequelize-cli db:migrate
@@ -47,8 +44,6 @@ services:
       - "9000:80"
     networks: 
       tnp_net:
-        aliases: 
-          - lb
 volumes:
   db_data:
 networks: 
