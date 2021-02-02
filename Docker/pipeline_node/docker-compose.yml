@@ -21,8 +21,8 @@ services:
         aliases: 
           - db
   api:
-    #container_name: api                    #No le utilise pas car il fera scaling
-    hostname : api
+    #container_name: api                    #Ne le utilise pas car il fera scaling
+    #hostname : api                         #Ne le utilise pas car il fera scaling
     build: 
       context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
     ports:
@@ -37,6 +37,7 @@ services:
           - api
     deploy:
       replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
+    command: npx sequelize-cli db:migrate
   lb:
     container_name: lb
     hostname : lb
