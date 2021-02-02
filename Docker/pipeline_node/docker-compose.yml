@@ -16,7 +16,7 @@ services:
           - api
     deploy:
         replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
-   lb:
+  lb:
     build: 
         context: ./nginx                        #levanta el balanceador de carga
     ports:
