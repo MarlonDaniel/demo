@@ -15,7 +15,7 @@ RUN npm install -g nodemon
 #COPY ["./app/*", "./src/"]
 #COPY --chown=node:node ./app/ /usr/src/
 #inicio sequelize
-RUN npm install -g sequelize-cli --save 
+#RUN npm install -g sequelize-cli --save 
 #configuro el ambiente de node
 #RUN npx sequelize-cli db:migrate 
 #expongo el puerto 3000
