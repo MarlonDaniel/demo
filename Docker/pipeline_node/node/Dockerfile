@@ -3,6 +3,8 @@ FROM node:10
 COPY ["./app/package.json", "./app/package-lock.json", "/usr/src/"]		
 #me situo en este directorio dentro del docker
 WORKDIR /usr/src/
+
+RUN ls 
 #configuro el ambiente de node
 RUN npm install 
 RUN npm install express --save
