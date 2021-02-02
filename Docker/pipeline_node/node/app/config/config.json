@@ -2,8 +2,8 @@
     "development": {
         "username": "tnproot",
         "password": "tnproot",
-        "database": "database-dental.cngmklb5l4ms.us-east-2.rds.amazonaws.com",
-        "host": "db",
+        "database": "tnpdemo",
+        "host": "database-dental.cngmklb5l4ms.us-east-2.rds.amazonaws.com",
         "dialect": "mysql"
     },
     "test": {
