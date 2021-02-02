@@ -1,6 +1,19 @@
 version: "3"
 
 services:
+  db:
+    build: 
+        context: ./mysql
+    environment:                    
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} 
+      MYSQL_USER: ${MYSQL_USER} 
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+            - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+            - db_data:/var/lib/mysql
+    #ports:
+    #  - "9004:3306"
   api:
     build: 
         context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
@@ -21,18 +34,5 @@ services:
         context: ./nginx                        #levanta el balanceador de carga
     ports:
       - "9000:80"
-  db:
-    build: 
-        context: ./mysql
-    environment:                    
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} 
-      MYSQL_USER: ${MYSQL_USER} 
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-    volumes:
-            - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
-            - db_data:/var/lib/mysql
-    #ports:
-    #  - "9004:3306"
 volumes:
   db_data:
