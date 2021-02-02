@@ -7,7 +7,7 @@ WORKDIR /usr/src/
 RUN npm install 		
 #copio el resto del proyecto. Docker no lleva los files que ya estan ahi y no han cambiado	
 #COPY ["./app/*", "./src/"]
-COPY --chown=node:node ./app/ /usr/src/
+#COPY --chown=node:node ./app/ /usr/src/
 #inicio sequelize
 #RUN npm install -g sequelize-cli --save 
 #configuro el ambiente de node
