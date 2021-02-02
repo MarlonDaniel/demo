@@ -4,10 +4,16 @@ COPY ["./app/package.json", "./app/package-lock.json", "/usr/src/"]
 #me situo en este directorio dentro del docker
 WORKDIR /usr/src/
 #configuro el ambiente de node
-RUN npm install 		
+RUN npm install 
+RUN npm install express --save
+RUN npm install sequelize --save
+RUN npm install mysql2 --save
+RUN npm install -g sequelize-cli --save 
+RUN npm install -g nodemon
+	
 #copio el resto del proyecto. Docker no lleva los files que ya estan ahi y no han cambiado	
 #COPY ["./app/*", "./src/"]
-COPY --chown=node:node ./app/ /usr/src/
+#COPY --chown=node:node ./app/ /usr/src/
 #inicio sequelize
 #RUN npm install -g sequelize-cli --save 
 #configuro el ambiente de node
