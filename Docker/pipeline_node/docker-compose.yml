@@ -27,7 +27,7 @@ services:
     #  - "9001:3000"
       - "9001-9002:3000"                        #asigna un rango de puertos del servidor a los dockers (para escalar)
     depends_on: 
-      - db
+      - db                                  #attend a que la base de données se démarre
     #volumes:
     # - ./app:/usr/src                       #monta mi contexto de build en la carpeta src
     # - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
@@ -35,7 +35,7 @@ services:
       tnp_net:
     deploy:
       replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
-    command: npx sequelize-cli db:migrate
+    #command: npx sequelize-cli db:migrate   #pour faire la charge de la base de donnes, mais ne marche pas car je doit le faire une soule fois pour node
   lb:
     container_name: lb
     hostname : lb
