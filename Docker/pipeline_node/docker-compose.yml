@@ -10,10 +10,10 @@ services:
     #volumes:
     # - ./app:/usr/src                       #monta mi contexto de build en la carpeta src
     # - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
-    networks: 
-      tnp_net:
-        aliases: 
-          - api
+#    networks: 
+#      tnp_net:
+#        aliases: 
+#          - api
     deploy:
         replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
   lb:
@@ -21,9 +21,9 @@ services:
         context: ./nginx                        #levanta el balanceador de carga
     ports:
       - "9000:80"
-    networks: 
-      tnp_net:
-        aliases: 
-          - lb
-networks:
-  tnp_net:
+#    networks: 
+#      tnp_net:
+#        aliases: 
+#          - lb
+#networks:
+#  tnp_net:

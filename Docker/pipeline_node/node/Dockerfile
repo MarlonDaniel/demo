@@ -4,7 +4,7 @@ COPY ["./app/package.json", "./app/package-lock.json", "/usr/src/"]
 #me situo en este directorio dentro del docker
 WORKDIR /usr/src/
 
-RUN ls 
+#RUN ls 
 #configuro el ambiente de node
 RUN npm install 
 RUN npm install express --save  
@@ -24,6 +24,6 @@ EXPOSE 3000
 #CMD ["npx", "nodemon", "index.js"]
 #CMD ["npx", "nodemon", "app.js"]
 #comando para levantar el node standar
-RUN ls
+#RUN ls
 CMD ["npm","start"]
 #CMD ["node","index.js"]
