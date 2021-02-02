@@ -2,6 +2,7 @@ version: "3"
 
 services:
   db:
+    container_name: db
     build: 
       context: ./mysql
     environment:                    
@@ -19,6 +20,7 @@ services:
         aliases: 
           - db
   api:
+    container_name: api
     build: 
       context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
     ports:
@@ -34,6 +36,7 @@ services:
     deploy:
       replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
   lb:
+    container_name: ld
     build: 
       context: ./nginx                        #levanta el balanceador de carga
     ports:
