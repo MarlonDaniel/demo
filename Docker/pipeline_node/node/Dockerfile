@@ -6,12 +6,12 @@ WORKDIR /usr/src/
 
 RUN ls 
 #configuro el ambiente de node
-RUN npm install 
-RUN npm install express --save
-RUN npm install sequelize --save
-RUN npm install mysql2 --save
-RUN npm install -g sequelize-cli --save 
-RUN npm install -g nodemon
+RUN sudo npm install 
+RUN sudo npm install express --save
+RUN sudo npm install sequelize --save
+RUN sudo npm install mysql2 --save
+RUN sudo npm install -g sequelize-cli --save 
+#RUN npm install -g nodemon
 	
 #copio el resto del proyecto. Docker no lleva los files que ya estan ahi y no han cambiado	
 #COPY ["./app/*", "./src/"]
@@ -26,5 +26,6 @@ EXPOSE 3000
 #CMD ["npx", "nodemon", "index.js"]
 #CMD ["npx", "nodemon", "app.js"]
 #comando para levantar el node standar
+RUN ls
 CMD ["npm","start"]
 #CMD ["node","index.js"]
