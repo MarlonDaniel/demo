@@ -22,6 +22,6 @@ RUN npm install -g nodemon
 EXPOSE 3000				
 #comando para levantar el node modo nodemon (cuando el file index.js cambia, se reinicia el servicio para tomar los cambios)
 #CMD ["npx", "nodemon", "index.js"]
-CMD ["npx", "nodemon", "start"]
+CMD ["npx", "nodemon", "app.js"]
 #comando para levantar el node standar
 #CMD ["node","index.js"]
