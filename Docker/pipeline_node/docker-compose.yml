@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-   api:
+  api:
     build: 
         context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
     ports:
