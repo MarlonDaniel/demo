@@ -1,1 +1,3 @@
 Docker/pipeline_node/node/app/node_modules
+**/*.ppk
+**/*.pem
