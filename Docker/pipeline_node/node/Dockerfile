@@ -17,7 +17,7 @@ RUN npm install -g sequelize-cli --save
 #COPY ["./app/*", "./src/"]
 COPY --chown=node:node ./app/ /usr/src/
 #configuro el ambiente de node --HABILITAR PARA LA VERSION ESTABLE LA SIGUIENTE LINEA
-RUN npx sequelize-cli db:migrate 
+#RUN npx sequelize-cli db:migrate 
 #expongo el puerto 3000
 EXPOSE 3000				
 #comando para levantar el node modo nodemon (cuando el file index.js cambia, se reinicia el servicio para tomar los cambios)
