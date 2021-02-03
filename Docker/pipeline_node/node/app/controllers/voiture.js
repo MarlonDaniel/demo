@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const model = require('../models').voiture;
 
 const Op = Sequelize.Op;
+const _ = require('lodash');
 
 module.exports = {
     create(req, res) {
@@ -16,7 +17,6 @@ module.exports = {
     delete(req, res) {
         console.log("en el controller delete: " + req.params.id);
         model.findByPk(req.params.id)
-
         let id = req.params.id;
         let body = _.pick(req.body);
         body.isDeleted = 1;
