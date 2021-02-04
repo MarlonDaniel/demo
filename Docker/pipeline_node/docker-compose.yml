@@ -46,6 +46,7 @@ services:
     networks: 
       tnp_net:
 volumes:
+  # les donnes sont stocke dans un volume. on doit eliminer le volume pour charger outre fois la DB
   db_data:
 networks: 
   tnp_net:
