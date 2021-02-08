@@ -1,6 +1,6 @@
 FROM node:10
 #Copio lo que necesito para hacer el npm install
-COPY ["./app/package.json", "./app/package-lock.json", "/usr/src/"]		
+COPY ["./demoApi/package.json", "./demoApi/package-lock.json", "/usr/src/"]		
 #me situo en este directorio dentro del docker
 WORKDIR /usr/src/
 

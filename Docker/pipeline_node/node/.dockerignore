@@ -1,3 +1,3 @@
 .dockerignore
 Dockerfile
-/app/node_modules
+/demoApi/node_modules
