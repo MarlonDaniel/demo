@@ -2,8 +2,8 @@ version: "3"
 
 services:
   db:
-    container_name: db
-    hostname : db
+    #container_name: db
+    #hostname : db
     build: 
       context: ./mysql
     environment:                    
@@ -19,8 +19,8 @@ services:
     networks: 
       demo_net:
   api:
-    #container_name: api                    #Ne le utilise pas car il fera scaling
-    #hostname : api                         #Ne le utilise pas car il fera scaling
+    ##container_name: api                    #Ne le utilise pas car il fera scaling
+    ##hostname : api                         #Ne le utilise pas car il fera scaling
     build: 
       context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
     ports:
@@ -37,8 +37,8 @@ services:
       replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
     #command: npx sequelize-cli db:migrate   #pour faire la charge de la base de donnes, mais ne marche pas car je doit le faire une soule fois pour node
   lb:
-    container_name: lb
-    hostname : lb
+    #container_name: lb
+    #hostname : lb
     build: 
       context: ./nginx                        #levanta el balanceador de carga
     ports:
@@ -46,8 +46,8 @@ services:
     networks: 
       demo_net:
   app:
-    container_name: app
-    hostname : app
+    #container_name: app
+    #hostname : app
     build: 
       context: ./nginx                        #levanta el balanceador de carga
     ports:
