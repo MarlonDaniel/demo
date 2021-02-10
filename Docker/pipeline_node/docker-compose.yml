@@ -17,7 +17,7 @@ services:
     ports:
       - "9004:3306"
     networks: 
-      tnp_net:
+      demo_net:
   api:
     #container_name: api                    #Ne le utilise pas car il fera scaling
     #hostname : api                         #Ne le utilise pas car il fera scaling
@@ -32,7 +32,7 @@ services:
     # - ./app:/usr/src                       #monta mi contexto de build en la carpeta src
     # - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
     networks: 
-      tnp_net:
+      demo_net:
     deploy:
       replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
     #command: npx sequelize-cli db:migrate   #pour faire la charge de la base de donnes, mais ne marche pas car je doit le faire une soule fois pour node
@@ -44,7 +44,7 @@ services:
     ports:
       - "9001:80"
     networks: 
-      tnp_net:
+      demo_net:
   app:
     container_name: app
     hostname : app
@@ -55,9 +55,9 @@ services:
     depends_on: 
       - lb                                  #attend a que la base de données se démarre
     networks: 
-      tnp_net:
+      demo_net:
 volumes:
   # les donnes sont stocke dans un volume. on doit eliminer le volume pour charger outre fois la DB
   db_data:
 networks: 
-  tnp_net:
+  demo_net:
