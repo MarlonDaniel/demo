@@ -15,7 +15,7 @@ services:
             - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
             - db_data:/var/lib/mysql
     ports:
-      - "9003:3306"
+      - "9004:3306"
     networks: 
       tnp_net:
   api:
@@ -25,7 +25,7 @@ services:
       context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
     ports:
     #  - "9001:3000"
-      - "9001-9002:3000"                        #asigna un rango de puertos del servidor a los dockers (para escalar)
+      - "9002-9003:3000"                        #asigna un rango de puertos del servidor a los dockers (para escalar)
     depends_on: 
       - db                                  #attend a que la base de données se démarre
     #volumes:
@@ -42,7 +42,18 @@ services:
     build: 
       context: ./nginx                        #levanta el balanceador de carga
     ports:
-      - "9000:80"
+      - "9001:80"
+    networks: 
+      tnp_net:
+  app:
+    container_name: app
+    hostname : app
+    build: 
+      context: ./nginx                        #levanta el balanceador de carga
+    ports:
+      - "9000:4200"
+    depends_on: 
+      - lb                                  #attend a que la base de données se démarre
     networks: 
       tnp_net:
 volumes:

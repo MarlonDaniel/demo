@@ -15,7 +15,7 @@ RUN npm install -g sequelize-cli --save
 	
 #copio el resto del proyecto. Docker no lleva los files que ya estan ahi y no han cambiado	
 #COPY ["./app/*", "./src/"]
-COPY --chown=node:node ./app/ /usr/src/
+COPY --chown=node:node ./demoApi/ /usr/src/
 #configuro el ambiente de node --HABILITAR PARA LA VERSION ESTABLE LA SIGUIENTE LINEA
 #RUN npx sequelize-cli db:migrate 
 #expongo el puerto 3000
