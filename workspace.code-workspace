@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "..\\Projects\\dental-admin"
+		},
+		{
+			"path": "..\\Projects\\dental-api"
 		}
 	],
 	"settings": {
