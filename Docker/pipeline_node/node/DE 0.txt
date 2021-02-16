@@ -12,10 +12,6 @@ npm install express --save
 npm install sequelize --save 
 npm install mysql2 --save
 npm install -g sequelize-cli --save 
-npm install cors --save                 # On install le cors module pour utiliser les APIs. Ajuter en app.js 
-                                        # const cors = require('cors')
-                                        # app.use(cors()) // Use this after the variable declaration app
-
 
 // para consumir apis
 npm install xmlhttprequest
@@ -36,11 +32,6 @@ npx sequelize-cli db:migrate
 app.use('/users', usersRouter);
 
 
-
-npm run build : construit les artefacts à déployer.
-npm run deploy : déploie le projet vers l’hébergeur.
-npm run lint : applique un vérificateur syntaxique au code du projet.
-npm run watch : démarre l’application et la relance à chaque changement.
 
 
 // si es necesario tener un patron para la vista
