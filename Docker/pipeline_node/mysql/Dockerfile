@@ -7,7 +7,7 @@ EXPOSE 8080 3306
 WORKDIR /etc/init.d
 
 # Copiar el archivo para inicializar la db
-COPY setup.sql /docker-entrypoint-initdb.d
+COPY setup.sql /docker-entrypoint-initdb.d/
 
 #RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db"]
 
