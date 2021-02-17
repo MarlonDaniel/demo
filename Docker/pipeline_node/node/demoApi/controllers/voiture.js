@@ -15,25 +15,25 @@ module.exports = {
             .catch(error => res.status(400).send(error))
     },
     delete(req, res) {
-        console.log("en el controller delete: " + req.params.id);
+        console.log("LOG voiture.js - en el controller delete: " + req.params.id);
         model.findByPk(req.params.id)
         let id = req.params.id;
         let body = _.pick(req.body);
         body.isDeleted = 1;
-        console.log("en el controller delete, description: " + body.description);
+        console.log("LOG voiture.js - en el controller delete, description: " + body.description);
         return model.update(
                 body, { where: { id: req.params.id } })
             .then(result => res.status(200).send(result))
             .catch(error => res.status(400).send(error))
     },
     get(req, res) {
-        console.log("en el controller get: " + req.params.id);
+        console.log("LOG voiture.js - en el controller get: " + req.params.id);
         return model.findByPk(req.params.id)
             .then(result => res.status(200).send(result))
             .catch(error => res.status(400).send(error))
     },
     list(req, res) {
-        console.log("en el controller list: " + req.params.id);
+        console.log("LOG voiture.js - en el controller list: " + req.params.id);
         //let bodyId = req.body.id == undefined ? '' : req.body.id;
         return model.findAll({
                 where: {

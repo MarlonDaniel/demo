@@ -23,6 +23,8 @@ services:
     hostname : api                         #Ne le utilise pas car il fera scaling
     build: 
       context: ./node                         #que me construya utilizando dentro del contexto actual la carpeta node (hace build segun el Dockerfile que encuentre)
+    environment:                      
+      NODE_ENV="production"           # Pour indiquer a node que il utilisara la configuration en production (base de donnees db)
     ports:
     #  - "9001:3000"
     #  - "9002-9003:3000"              # asigna un rango de puertos del servidor a los dockers (para escalar)
