@@ -53,7 +53,7 @@ services:
      #container_name: app
      #hostname : app
     build: 
-      context: ./angular                       
+      context: ./angular
     ports:
       - "9000:4200"
     depends_on: 
