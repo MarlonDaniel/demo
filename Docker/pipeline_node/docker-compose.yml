@@ -12,8 +12,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
-            #- ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
-            - db_data:/var/lib/mysql
+            - db_data:/var/lib/mysql    # On doit etre sure que le volume n'existe pas la premiere foi pour faire la premier charge
     ports:
       - "9004:3306"
     networks: 
@@ -50,17 +49,17 @@ services:
       - api 
     networks: 
       demo_net:
-  # app:
-  #   #container_name: app
-  #   #hostname : app
-  #   build: 
-  #     context: ./nginx                        #levanta el balanceador de carga
-  #   ports:
-  #     - "9000:4200"
-  #   depends_on: 
-  #     - lb                                  #attend a que la base de données se démarre
-  #   networks: 
-  #     demo_net:
+   app:
+     #container_name: app
+     #hostname : app
+     build: 
+       context: ./nginx                        #levanta el balanceador de carga
+     ports:
+      - "9000:4200"
+    depends_on: 
+      - lb                                  #attend a que la base de données se démarre
+    networks: 
+      demo_net:
 volumes:
   # les donnes sont stocke dans un volume. on doit eliminer le volume pour charger outre fois la DB
   db_data:
