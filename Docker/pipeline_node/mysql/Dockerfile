@@ -2,14 +2,14 @@ FROM mysql
 EXPOSE 8080 3306
 #ARG MYSQL_ROOT_PASSWORD
 
-ENV MYSQL_ROOT_PASSWORD=tnproot
+#ENV MYSQL_ROOT_PASSWORD=tnproot
 
 WORKDIR /etc/init.d
 
 # Copiar el archivo para inicializar la db
-#COPY setup.sql /docker-entrypoint-initdb.d/setup.sql
+COPY setup.sql /docker-entrypoint-initdb.d
 
-RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db"]
+#RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db"]
 
 
 #FROM mysql:latest
