@@ -36,8 +36,8 @@ services:
     # - /usr/src/node_modules                 #como hay archivos que no deben modificarse, le especificas el nombre para que no los toque
     networks: 
       demo_net:
-    deploy:
-      replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
+    #deploy:
+    #  replicas: 2                             #levanta 2 instancias. hay que ejecutar el docker-compose up --compatibility
     #command: npx sequelize-cli db:migrate   #pour faire la charge de la base de donnes, mais ne marche pas car je doit le faire une soule fois pour node
   lb:
     container_name: lb
