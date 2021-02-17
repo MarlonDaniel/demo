@@ -49,12 +49,12 @@ services:
       - api 
     networks: 
       demo_net:
-   app:
+  app:
      #container_name: app
      #hostname : app
-     build: 
-       context: ./nginx                        #levanta el balanceador de carga
-     ports:
+    build: 
+      context: ./nginx                        #levanta el balanceador de carga
+    ports:
       - "9000:4200"
     depends_on: 
       - lb                                  #attend a que la base de données se démarre
